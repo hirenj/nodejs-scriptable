@@ -1,0 +1,18 @@
+{
+  "name": "nodejs-scriptable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "expand_doi" : "node index.js \"$HOME/Library/Mobile Documents/iCloud~dk~simonbs~Scriptable/Documents/expand_doi.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.22",
+    "follow-redirects": "^1.7.0",
+    "osx-quicklook": "^0.0.3",
+    "puppeteer-core": "^1.15.0"
+  }
+}
