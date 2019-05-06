@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "expand_doi" : "node index.js \"$HOME/Library/Mobile Documents/iCloud~dk~simonbs~Scriptable/Documents/expand_doi.js\""
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin" : {
+    "expand_doi" : "bin/scriptable.js"
   },
   "author": "",
   "license": "ISC",
