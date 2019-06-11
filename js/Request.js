@@ -2,6 +2,13 @@ const https = require('https');
 const redirect_https = require('follow-redirects').https;
 const URL = require('url').URL;
 
+class HTTPError extends Error{
+  constructor(message,status) {
+    super(message);
+    this.status = status;
+  }
+};
+
 export default class Request {
   constructor(url) {
     this.url = new URL(url);
@@ -22,7 +29,14 @@ export default class Request {
         res.on('data', (d) => {
           results.push(d);
         });
-        res.on('end', () => resolve(Buffer.concat(results)) );
+        res.on('end', () => {
+          if (res.statusCode !== 200) {
+            let errmessage = Buffer.concat(results);
+            reject(new HTTPError(errmessage,res.statusCode));
+            return;
+          }
+          resolve(Buffer.concat(results))
+        });
       });
 
       req.on('error', reject);
