@@ -19,4 +19,7 @@ export default class WebView {
     await this.ensurePage();
     return this.page.setContent(html);
   }
+  async present() {
+    return Promise.resolve();
+  }
 }
