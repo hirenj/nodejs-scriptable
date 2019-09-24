@@ -3,6 +3,7 @@
 import WebView from './js/WebView';
 import Request from './js/Request';
 import FileManager from './js/FileManager';
+import Pasteboard from './js/Pasteboard';
 
 const QuickLook = {
   present: (filename) => {
@@ -35,6 +36,7 @@ let sandbox = {
   FileManager: FileManager,
   QuickLook: QuickLook,
   ShareSheet: ShareSheet,
+  Pasteboard: Pasteboard,
   console: console,
   args: { all: process.argv.slice(3) }
 };
