@@ -32,6 +32,9 @@ export default class Request {
         res.on('end', () => {
           if (res.statusCode !== 200) {
             let errmessage = Buffer.concat(results);
+            if (errmessage.length === 0 && res.statusCode === 500) {
+              errmessage = 'Server Error';
+            }
             reject(new HTTPError(errmessage,res.statusCode));
             return;
           }
