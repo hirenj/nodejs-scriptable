@@ -22,6 +22,12 @@ const ShareSheet = {
   }
 };
 
+const Script = {
+  complete: () => {
+    process.exit();
+  }
+};
+
 const vm = require('vm');
 const fs = require('fs');
 const util = require('util');
@@ -30,14 +36,16 @@ const scriptfile = fs.readFileSync(process.argv[2]).toString();
 
 const script = new vm.Script('(async () => {'+scriptfile+'})();');
 
+
 let sandbox = {
-  WebView: WebView,
-  Request: Request,
-  FileManager: FileManager,
-  QuickLook: QuickLook,
-  ShareSheet: ShareSheet,
-  Pasteboard: Pasteboard,
-  console: console,
+  WebView,
+  Request,
+  FileManager,
+  QuickLook,
+  ShareSheet,
+  Pasteboard,
+  console,
+  Script,
   args: { all: process.argv.slice(3) }
 };
 
