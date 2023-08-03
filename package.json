@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "esm": "^3.2.22",
-    "follow-redirects": "^1.7.0",
+    "follow-redirects": "^1.14.8",
     "osx-quicklook": "^0.0.3",
     "puppeteer-core": "^1.15.0"
   }
